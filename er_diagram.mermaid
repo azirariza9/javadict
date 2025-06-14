@@ -1,0 +1,110 @@
+erDiagram
+    kata ||--o{ entri : "1 to many"
+    entri ||--o{ makna : "1 to many"
+    entri ||--o{ etimologi : "0 to 1"
+    entri ||--o{ varian : "0 to many"
+    entri ||--o{ bentuk_tak_baku : "0 to many"
+    entri ||--o{ kata_turunan : "0 to many"
+    entri ||--o{ gabungan_kata : "0 to many"
+    entri ||--o{ peribahasa : "0 to many"
+    entri ||--o{ idiom : "0 to many"
+    makna ||--o{ kelas_makna : "1 to many"
+    makna ||--o{ submakna : "1 to many"
+    makna ||--o{ contoh : "0 to many"
+    etimologi ||--o{ kelas_etimologi : "0 to many"
+    etimologi ||--o{ makna_etimologi : "0 to many"
+    
+    kata {
+        VARCHAR(255) id_kata PK
+        VARCHAR(255) pranala
+    }
+    
+    entri {
+        SERIAL id_entri PK
+        VARCHAR(255) id_kata FK
+        VARCHAR(255) nama
+        VARCHAR(255) nomor
+        VARCHAR(255) pelafalan
+    }
+    
+    makna {
+        SERIAL id_makna PK
+        INT id_entri FK
+        VARCHAR(255) info
+    }
+    
+    kelas_makna {
+        SERIAL id_kelas_makna PK
+        INT id_makna FK
+        VARCHAR(255) kode
+        VARCHAR(255) nama
+        VARCHAR(255) deskripsi
+    }
+    
+    submakna {
+        SERIAL id_submakna PK
+        INT id_makna FK
+        VARCHAR(255) teks
+    }
+    
+    contoh {
+        SERIAL id_contoh PK
+        INT id_makna FK
+        VARCHAR(255) teks
+    }
+    
+    etimologi {
+        SERIAL id_etimologi PK
+        INT id_entri FK
+        VARCHAR(255) bahasa
+        VARCHAR(255) asal_kata
+        VARCHAR(255) pelafalan
+    }
+    
+    kelas_etimologi {
+        SERIAL id_kelas_etimologi PK
+        INT id_etimologi FK
+        VARCHAR(255) kelas
+    }
+    
+    makna_etimologi {
+        SERIAL id_makna_etimologi PK
+        INT id_etimologi FK
+        VARCHAR(255) makna
+    }
+    
+    varian {
+        SERIAL id_varian PK
+        INT id_entri FK
+        VARCHAR(255) varian
+    }
+    
+    bentuk_tak_baku {
+        SERIAL id_bentuk_tak_baku PK
+        INT id_entri FK
+        VARCHAR(255) kata
+    }
+    
+    kata_turunan {
+        SERIAL id_kata_turunan PK
+        INT id_entri FK
+        VARCHAR(255) kata
+    }
+    
+    gabungan_kata {
+        SERIAL id_gabungan_kata PK
+        INT id_entri FK
+        VARCHAR(255) kata
+    }
+    
+    peribahasa {
+        SERIAL id_peribahasa PK
+        INT id_entri FK
+        VARCHAR(255) teks
+    }
+    
+    idiom {
+        SERIAL id_idiom PK
+        INT id_entri FK
+        VARCHAR(255) teks
+    }
