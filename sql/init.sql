@@ -17,15 +17,15 @@ DROP TABLE IF EXISTS idiom CASCADE;
 -- Create tables
 CREATE TABLE kata (
     id_kata VARCHAR(255) PRIMARY KEY,
-    pranala VARCHAR(255)
+    pranala VARCHAR(255) NOT NULL
 );
 
 create TABLE entri (
     id_entri SERIAL PRIMARY KEY,
     id_kata VARCHAR(255) REFERENCES kata(id_kata),
-    nama VARCHAR(255),
-    nomor VARCHAR(255),
-    pelafalan VARCHAR(255)
+    nama VARCHAR(255) NOT NULL,
+    nomor INT DEFAULT '',
+    pelafalan VARCHAR(255) DEFAULT ''
 );
 
 
