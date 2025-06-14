@@ -1,16 +1,20 @@
 package com.azirariza.javadict.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Kata {
-    private String id_kata;
+    @JsonProperty("id_kata")
+    private String idKata;
+    @JsonProperty("pranala")
     private String pranala;
 
     public Kata() {}
-    public Kata(String id_kata,String pranala){
-        this.id_kata = id_kata;
+    public Kata(String idKata,String pranala){
+        this.idKata = idKata;
         this.pranala = pranala;
     }
-    public String getIdKata(){return id_kata;}
-    public void setIdKata(String id_kata){this.id_kata=id_kata;}
+    public String getIdKata(){return idKata;}
+    public void setIdKata(String idKata){this.idKata=idKata;}
     public String getPranala(){return pranala;}
     public void setPranala(String pranala){this.pranala=pranala;}
 }

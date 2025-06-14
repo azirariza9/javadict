@@ -1,6 +1,7 @@
 package com.azirariza.javadict.repository;
 
 import com.azirariza.javadict.entity.Kata;
+import com.azirariza.javadict.entity.dto.KataDTOUpdate;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,7 +18,6 @@ public class KataRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public KataRepository(JdbcTemplate jdbcTemplate) {
-        System.out.println("KataRepository initialized!");
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -53,15 +53,19 @@ public class KataRepository {
         return kata;
     }
 
-    public Kata update(Kata kata) {
+    public Kata update(String idKata,KataDTOUpdate kataDTO) {
         String sql = "UPDATE kata SET pranala = ?  WHERE id_kata = ?";
-        int rowsAffected = jdbcTemplate.update(sql, kata.getPranala(),kata.getIdKata() );
+        Kata updatedKata = new Kata();
+        updatedKata.setIdKata(idKata);
+        updatedKata.setPranala(kataDTO.getPranala());
+        
+        int rowsAffected = jdbcTemplate.update(sql, kataDTO.getPranala(),idKata );
                 if (rowsAffected != 1) {
-            throw new DataAccessException("Insert failed: " + kata) {
+            throw new DataAccessException("Insert failed: " + updatedKata) {
             };
         }
   
-        return kata;
+        return updatedKata;
     }
 
     public void deleteById(String id) {

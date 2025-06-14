@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.azirariza.javadict.entity.Kata;
+import com.azirariza.javadict.entity.dto.KataDTOUpdate;
 import com.azirariza.javadict.service.KataService;
 
 @RestController
@@ -52,8 +53,8 @@ public class KataController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Kata> updateKata(@PathVariable String id, @RequestBody Kata kata) {
-        return ResponseEntity.ok(kataService.updateKata(id, kata));
+    public ResponseEntity<Kata> updateKata(@PathVariable String id, @RequestBody KataDTOUpdate kataDTO) {
+        return ResponseEntity.ok(kataService.updateKata(id, kataDTO));
     }
 
     @DeleteMapping("/{id}")
