@@ -30,12 +30,12 @@ public class MaknaService {
         return maknaRepository.insert(maknaDTO);
     }
 
-    public Makna updateMakna(int idMakna, MaknaDTOUpdate maknaDTO) {
-        return maknaRepository.update(idMakna, maknaDTO);
+    public Makna updateMakna(int id, MaknaDTOUpdate maknaDTO) {
+        return maknaRepository.update(id, maknaDTO);
     }
 
-    public void deleteMakna(int idMakna) {
-        maknaRepository.deleteById(idMakna);
+    public void deleteMakna(int id) {
+        maknaRepository.deleteById(id);
     }
 
 }

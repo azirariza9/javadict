@@ -1,4 +1,4 @@
-package com.azirariza.javadict.entity;
+package com.azirariza.javadict.entity.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
