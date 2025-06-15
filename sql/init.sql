@@ -32,7 +32,7 @@ create TABLE entri (
 create TABLE makna (
     id_makna SERIAL PRIMARY KEY,
     id_entri INT REFERENCES entri(id_entri),
-    info VARCHAR(255)
+    info TEXT
 );
 
 create TABLE kelas_makna (
