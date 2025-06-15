@@ -52,13 +52,13 @@ public class EntriController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Entri> updateEntri(@PathVariable int idEntri, @RequestBody EntriDTOUpdate entriDTO) {
-        return ResponseEntity.ok(entriService.updateEntri(idEntri, entriDTO));
+    public ResponseEntity<Entri> updateEntri(@PathVariable int id, @RequestBody EntriDTOUpdate entriDTO) {
+        return ResponseEntity.ok(entriService.updateEntri(id, entriDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEntri(@PathVariable int idEntri) {
-        entriService.deleteEntri(idEntri);
+    public ResponseEntity<Void> deleteEntri(@PathVariable int id) {
+        entriService.deleteEntri(id);
         return ResponseEntity.noContent().build();
     }
 }

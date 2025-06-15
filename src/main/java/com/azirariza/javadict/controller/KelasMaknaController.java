@@ -52,14 +52,14 @@ public class KelasMaknaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<KelasMakna> updateEntri(@PathVariable int idKelasMakna,
+    public ResponseEntity<KelasMakna> updateEntri(@PathVariable int id,
             @RequestBody KelasMaknaDTOUpdate kelasMaknaDTO) {
-        return ResponseEntity.ok(kelasMaknaService.updateKelasMakna(idKelasMakna, kelasMaknaDTO));
+        return ResponseEntity.ok(kelasMaknaService.updateKelasMakna(id, kelasMaknaDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEntri(@PathVariable int idKelasMakna) {
-        kelasMaknaService.deleteKelasMakna(idKelasMakna);
+    public ResponseEntity<Void> deleteEntri(@PathVariable int id) {
+        kelasMaknaService.deleteKelasMakna(id);
         return ResponseEntity.noContent().build();
     }
 }
