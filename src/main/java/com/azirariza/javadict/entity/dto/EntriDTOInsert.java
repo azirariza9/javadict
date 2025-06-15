@@ -16,7 +16,7 @@ public class EntriDTOInsert {
     }
 
     public EntriDTOInsert(String idKata, String nama, int nomor, String pelafalan) {
-      
+
         this.idKata = idKata;
         this.nama = nama;
         this.nomor = nomor;

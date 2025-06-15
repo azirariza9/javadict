@@ -1,13 +1,13 @@
 package com.azirariza.javadict.service;
 
-import org.springframework.stereotype.Service;
-
-import com.azirariza.javadict.repository.KataRepository;
-import com.azirariza.javadict.entity.Kata;
-import com.azirariza.javadict.entity.dto.KataDTOUpdate;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.azirariza.javadict.entity.Kata;
+import com.azirariza.javadict.entity.dto.KataDTOUpdate;
+import com.azirariza.javadict.repository.KataRepository;
 
 @Service
 public class KataService {
@@ -30,8 +30,8 @@ public class KataService {
         return kataRepository.insert(kata);
     }
 
-    public Kata updateKata(String id, KataDTOUpdate kataDTO) { 
-        return kataRepository.update(id,kataDTO);
+    public Kata updateKata(String id, KataDTOUpdate kataDTO) {
+        return kataRepository.update(id, kataDTO);
     }
 
     public void deleteKata(String id) {

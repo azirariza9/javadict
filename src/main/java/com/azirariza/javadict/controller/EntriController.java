@@ -20,9 +20,9 @@ import com.azirariza.javadict.entity.dto.EntriDTOUpdate;
 import com.azirariza.javadict.service.EntriService;
 
 @RestController
-@RequestMapping({"/api/entri","api/entri/"})
+@RequestMapping({ "/api/entri", "api/entri/" })
 public class EntriController {
-        private final EntriService entriService;
+    private final EntriService entriService;
 
     public EntriController(EntriService entriService) {
         this.entriService = entriService;

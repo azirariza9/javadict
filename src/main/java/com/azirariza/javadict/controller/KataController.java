@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +19,7 @@ import com.azirariza.javadict.entity.dto.KataDTOUpdate;
 import com.azirariza.javadict.service.KataService;
 
 @RestController
-@RequestMapping({"/api/kata","api/kata/"})
+@RequestMapping({ "/api/kata", "api/kata/" })
 public class KataController {
     private final KataService kataService;
 

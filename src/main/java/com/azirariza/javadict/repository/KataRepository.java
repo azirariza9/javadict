@@ -1,17 +1,17 @@
 package com.azirariza.javadict.repository;
 
-import com.azirariza.javadict.entity.Kata;
-import com.azirariza.javadict.entity.dto.KataDTOUpdate;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
+import com.azirariza.javadict.entity.Kata;
+import com.azirariza.javadict.entity.dto.KataDTOUpdate;
 
 @Repository
 public class KataRepository {
@@ -53,18 +53,18 @@ public class KataRepository {
         return kata;
     }
 
-    public Kata update(String idKata,KataDTOUpdate kataDTO) {
+    public Kata update(String idKata, KataDTOUpdate kataDTO) {
         String sql = "UPDATE kata SET pranala = ?  WHERE id_kata = ?";
         Kata updatedKata = new Kata();
         updatedKata.setIdKata(idKata);
         updatedKata.setPranala(kataDTO.getPranala());
-        
-        int rowsAffected = jdbcTemplate.update(sql, kataDTO.getPranala(),idKata );
-                if (rowsAffected != 1) {
+
+        int rowsAffected = jdbcTemplate.update(sql, kataDTO.getPranala(), idKata);
+        if (rowsAffected != 1) {
             throw new DataAccessException("Insert failed: " + updatedKata) {
             };
         }
-  
+
         return updatedKata;
     }
 

@@ -14,7 +14,7 @@ public class EntriDTOUpdate {
     }
 
     public EntriDTOUpdate(String nama, int nomor, String pelafalan) {
-      
+
         this.nama = nama;
         this.nomor = nomor;
         this.pelafalan = pelafalan;
