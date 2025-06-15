@@ -24,13 +24,13 @@ public class KelasMaknaRepository {
     private static class KelasMaknaRowMapper implements RowMapper<KelasMakna> {
         @Override
         public KelasMakna mapRow(ResultSet rs, int rowNum) throws SQLException {
-            KelasMakna entri = new KelasMakna();
-            entri.setidKelasMakna(rs.getInt("id_kelas_makna"));
-            entri.setidMakna(rs.getInt("id_makna"));
-            entri.setKode(rs.getString("kode"));
-            entri.setNama(rs.getString("nama"));
-            entri.setDeskripsi(rs.getString("deskripsi"));
-            return entri;
+            KelasMakna kelasMakna = new KelasMakna();
+            kelasMakna.setIdKelasMakna(rs.getInt("id_kelas_makna"));
+            kelasMakna.setidMakna(rs.getInt("id_makna"));
+            kelasMakna.setKode(rs.getString("kode"));
+            kelasMakna.setNama(rs.getString("nama"));
+            kelasMakna.setDeskripsi(rs.getString("deskripsi"));
+            return kelasMakna;
         }
     }
 
@@ -40,7 +40,7 @@ public class KelasMaknaRepository {
     }
 
     public Optional<KelasMakna> findById(int id) {
-        String sql = "SELECT id_makna,kode,nama,deskripsi  FROM entri WHERE id_kelas_makna = ?";
+        String sql = "SELECT id_makna,kode,nama,deskripsi  FROM kelasMakna WHERE id_kelas_makna = ?";
         return jdbcTemplate.query(sql, new KelasMaknaRowMapper(), id)
                 .stream()
                 .findFirst();
@@ -50,12 +50,12 @@ public class KelasMaknaRepository {
         String sql = "INSERT INTO kelas_makna (id_makna,kode,nama,deskripsi) VALUES (?,?,?,?) RETURNING id_kelas_makna";
         KelasMakna kelasMakna = new KelasMakna();
         int idKelasMakna = jdbcTemplate.queryForObject(sql, int.class,
-                kelasMaknaDTO.getidMakna(),
+                kelasMaknaDTO.getIdMakna(),
                 kelasMaknaDTO.getKode(),
                 kelasMaknaDTO.getNama(),
                 kelasMaknaDTO.getDeskripsi());
-        kelasMakna.setidKelasMakna(idKelasMakna);
-        kelasMakna.setidMakna(kelasMaknaDTO.getidMakna());
+        kelasMakna.setIdKelasMakna(idKelasMakna);
+        kelasMakna.setidMakna(kelasMaknaDTO.getIdMakna());
         kelasMakna.setKode(kelasMaknaDTO.getKode());
         kelasMakna.setNama(kelasMaknaDTO.getNama());
         kelasMakna.setDeskripsi(kelasMaknaDTO.getDeskripsi());
@@ -65,7 +65,7 @@ public class KelasMaknaRepository {
     public KelasMakna update(int idKelasMakna, KelasMaknaDTOUpdate kelasMaknaDTO) {
         String sql = "UPDATE kelas_makna SET kode = ?,nama = ?,deskripsi = ?  WHERE id_kelas_makna = ? RETURNING id_makna";
         KelasMakna updatedKelasMakna = new KelasMakna();
-        updatedKelasMakna.setidKelasMakna(idKelasMakna);
+        updatedKelasMakna.setIdKelasMakna(idKelasMakna);
         ;
         updatedKelasMakna.setKode(kelasMaknaDTO.getKode());
         updatedKelasMakna.setNama(kelasMaknaDTO.getNama());

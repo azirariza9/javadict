@@ -25,11 +25,11 @@ public class KelasMakna {
         this.deskripsi = deskripsi;
     }
 
-    public int getidKelasMakna() {
+    public int getIdKelasMakna() {
         return idKelasMakna;
     }
 
-    public void setidKelasMakna(int idKelasMakna) {
+    public void setIdKelasMakna(int idKelasMakna) {
         this.idKelasMakna = idKelasMakna;
     }
 
