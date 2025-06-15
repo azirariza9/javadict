@@ -27,19 +27,19 @@ public class KelasMaknaDTOUpdate {
         this.nama = nama;
     }
 
-    public String getkode() {
+    public String getKode() {
         return kode;
     }
 
-    public void setkode(String kode) {
+    public void setKode(String kode) {
         this.kode = kode;
     }
 
-    public String getdeskripsi() {
+    public String getDeskripsi() {
         return deskripsi;
     }
 
-    public void setdeskripsi(String deskripsi) {
+    public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
     }
 
