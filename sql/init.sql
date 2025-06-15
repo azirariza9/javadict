@@ -24,7 +24,7 @@ create TABLE entri (
     id_entri SERIAL PRIMARY KEY,
     id_kata VARCHAR(255) REFERENCES kata(id_kata),
     nama VARCHAR(255) NOT NULL,
-    nomor INT DEFAULT '',
+    nomor INT DEFAULT 0,
     pelafalan VARCHAR(255) DEFAULT ''
 );
 
@@ -38,9 +38,9 @@ create TABLE makna (
 create TABLE kelas_makna (
     id_kelas_makna SERIAL PRIMARY KEY,
     id_makna INT REFERENCES makna(id_makna),
-    kode VARCHAR(255),
-    nama VARCHAR(255),
-    deskripsi VARCHAR(255)
+    kode VARCHAR(255) DEFAULT '',
+    nama VARCHAR(255) DEFAULT '',
+    deskripsi VARCHAR(255) DEFAULT ''
 );
 
 create TABLE submakna (
