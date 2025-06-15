@@ -50,16 +50,20 @@ public class EntriRepository {
         String sql = "INSERT INTO entri (id_kata,nama,nomor,pelafalan) VALUES (?,?,?,?) RETURNING id_entri";
         Entri entri = new Entri();
         int idEntri = jdbcTemplate.queryForObject(sql, int.class,
-                entri.getIdKata(),
-                entri.getNama(),
-                entri.getNomor(),
-                entri.getPelafalan());
+                entriDTO.getIdKata(),
+                entriDTO.getNama(),
+                entriDTO.getNomor(),
+                entriDTO.getPelafalan());
         entri.setIdEntri(idEntri);
+        entri.setIdKata(entriDTO.getIdKata());
+        entri.setNama(entriDTO.getNama());
+        entri.setNomor(entriDTO.getNomor());
+        entri.setPelafalan(entriDTO.getPelafalan());
         return entri;
     }
 
     public Entri update(int idEntri, EntriDTOUpdate entriDTO) {
-        String sql = "UPDATE entri SET nama = ?,SET nomor = ?,SET pelafalan = ?  WHERE id_entri = ?";
+        String sql = "UPDATE entri SET nama = ?,nomor = ?,pelafalan = ?  WHERE id_entri = ? RETURNING id_kata";
         Entri updatedEntri = new Entri();
         updatedEntri.setIdEntri(idEntri);
         ;
