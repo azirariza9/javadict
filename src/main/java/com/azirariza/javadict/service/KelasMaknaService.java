@@ -22,19 +22,19 @@ public class KelasMaknaService {
         return kelasMaknaRepository.findAll();
     }
 
-    public Optional<KelasMakna> getEntriById(int id) {
+    public Optional<KelasMakna> getKelasMaknaById(int id) {
         return kelasMaknaRepository.findById(id);
     }
 
-    public KelasMakna createEntri(KelasMaknaDTOInsert kelasMaknaDTO) {
+    public KelasMakna createKelasMakna(KelasMaknaDTOInsert kelasMaknaDTO) {
         return kelasMaknaRepository.insert(kelasMaknaDTO);
     }
 
-    public KelasMakna updateEntri(int idEntri, KelasMaknaDTOUpdate kelasMaknaDTO) {
+    public KelasMakna updateKelasMakna(int idEntri, KelasMaknaDTOUpdate kelasMaknaDTO) {
         return kelasMaknaRepository.update(idEntri, kelasMaknaDTO);
     }
 
-    public void deleteEntri(int idEntri) {
+    public void deleteKelasMakna(int idEntri) {
         kelasMaknaRepository.deleteById(idEntri);
     }
 
