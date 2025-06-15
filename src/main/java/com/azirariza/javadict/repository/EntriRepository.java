@@ -77,9 +77,9 @@ public class EntriRepository {
         return updatedEntri;
     }
 
-    public void deleteById(String id) {
+    public void deleteById(int idEntri) {
         String sql = "DELETE FROM entri WHERE id_entri = ?";
-        jdbcTemplate.update(sql, id);
+        jdbcTemplate.update(sql, idEntri);
     }
 
 }

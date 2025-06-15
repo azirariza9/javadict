@@ -35,8 +35,8 @@ public class EntriService {
         return entriRepository.update(idEntri,entriDTO);
     }
 
-    public void deleteEntri(String id) {
-        entriRepository.deleteById(id);
+    public void deleteEntri(int idEntri) {
+        entriRepository.deleteById(idEntri);
     }
 
 }
