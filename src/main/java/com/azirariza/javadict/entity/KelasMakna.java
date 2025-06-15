@@ -33,11 +33,11 @@ public class KelasMakna {
         this.idKelasMakna = idKelasMakna;
     }
 
-    public int getidMakna() {
+    public int getIdMakna() {
         return idMakna;
     }
 
-    public void setidMakna(int idMakna) {
+    public void setIdMakna(int idMakna) {
         this.idMakna = idMakna;
     }
 

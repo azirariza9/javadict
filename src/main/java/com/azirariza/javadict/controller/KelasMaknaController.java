@@ -34,31 +34,31 @@ public class KelasMaknaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<KelasMakna>> getAllEntri() {
+    public ResponseEntity<List<KelasMakna>> getAllKelasMakna() {
         return ResponseEntity.ok(kelasMaknaService.getAllKelasMakna());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<KelasMakna> getEntriById(@PathVariable int id) {
+    public ResponseEntity<KelasMakna> getKelasMaknaById(@PathVariable int id) {
         Optional<KelasMakna> entri = kelasMaknaService.getKelasMaknaById(id);
         return entri.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<KelasMakna> createEntri(@RequestBody KelasMaknaDTOInsert kelasMaknaDTO) {
+    public ResponseEntity<KelasMakna> createKelasMakna(@RequestBody KelasMaknaDTOInsert kelasMaknaDTO) {
         KelasMakna createdKata = kelasMaknaService.createKelasMakna(kelasMaknaDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdKata);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<KelasMakna> updateEntri(@PathVariable int id,
+    public ResponseEntity<KelasMakna> updateKelasMakna(@PathVariable int id,
             @RequestBody KelasMaknaDTOUpdate kelasMaknaDTO) {
         return ResponseEntity.ok(kelasMaknaService.updateKelasMakna(id, kelasMaknaDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEntri(@PathVariable int id) {
+    public ResponseEntity<Void> deleteKelasMakna(@PathVariable int id) {
         kelasMaknaService.deleteKelasMakna(id);
         return ResponseEntity.noContent().build();
     }

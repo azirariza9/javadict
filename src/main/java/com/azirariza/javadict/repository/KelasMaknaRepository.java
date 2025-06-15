@@ -26,7 +26,7 @@ public class KelasMaknaRepository {
         public KelasMakna mapRow(ResultSet rs, int rowNum) throws SQLException {
             KelasMakna kelasMakna = new KelasMakna();
             kelasMakna.setIdKelasMakna(rs.getInt("id_kelas_makna"));
-            kelasMakna.setidMakna(rs.getInt("id_makna"));
+            kelasMakna.setIdMakna(rs.getInt("id_makna"));
             kelasMakna.setKode(rs.getString("kode"));
             kelasMakna.setNama(rs.getString("nama"));
             kelasMakna.setDeskripsi(rs.getString("deskripsi"));
@@ -55,7 +55,7 @@ public class KelasMaknaRepository {
                 kelasMaknaDTO.getNama(),
                 kelasMaknaDTO.getDeskripsi());
         kelasMakna.setIdKelasMakna(idKelasMakna);
-        kelasMakna.setidMakna(kelasMaknaDTO.getIdMakna());
+        kelasMakna.setIdMakna(kelasMaknaDTO.getIdMakna());
         kelasMakna.setKode(kelasMaknaDTO.getKode());
         kelasMakna.setNama(kelasMaknaDTO.getNama());
         kelasMakna.setDeskripsi(kelasMaknaDTO.getDeskripsi());
@@ -76,7 +76,7 @@ public class KelasMaknaRepository {
                 kelasMaknaDTO.getNama(),
                 kelasMaknaDTO.getDeskripsi(),
                 idKelasMakna);
-        updatedKelasMakna.setidMakna(idMakna);
+        updatedKelasMakna.setIdMakna(idMakna);
 
         return updatedKelasMakna;
     }

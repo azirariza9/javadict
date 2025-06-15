@@ -30,12 +30,12 @@ public class KelasMaknaService {
         return kelasMaknaRepository.insert(kelasMaknaDTO);
     }
 
-    public KelasMakna updateKelasMakna(int idEntri, KelasMaknaDTOUpdate kelasMaknaDTO) {
-        return kelasMaknaRepository.update(idEntri, kelasMaknaDTO);
+    public KelasMakna updateKelasMakna(int id, KelasMaknaDTOUpdate kelasMaknaDTO) {
+        return kelasMaknaRepository.update(id, kelasMaknaDTO);
     }
 
-    public void deleteKelasMakna(int idEntri) {
-        kelasMaknaRepository.deleteById(idEntri);
+    public void deleteKelasMakna(int id) {
+        kelasMaknaRepository.deleteById(id);
     }
 
 }
