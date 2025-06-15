@@ -32,7 +32,7 @@ create TABLE entri (
 create TABLE makna (
     id_makna SERIAL PRIMARY KEY,
     id_entri INT REFERENCES entri(id_entri),
-    info TEXT
+    info TEXT DEFAULT ''
 );
 
 create TABLE kelas_makna (
@@ -46,13 +46,13 @@ create TABLE kelas_makna (
 create TABLE submakna (
     id_submakna SERIAL PRIMARY KEY,
     id_makna INT REFERENCES makna(id_makna),
-    teks VARCHAR(255)
+    teks TEXT NOT NULL
 );
 
 create TABLE contoh (
     id_contoh SERIAL PRIMARY KEY,
     id_makna INT REFERENCES makna(id_makna),
-    teks VARCHAR(255)
+    teks TEXT DEFAULT ''
 );
 
 
