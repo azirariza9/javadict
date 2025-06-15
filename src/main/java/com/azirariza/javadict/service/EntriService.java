@@ -30,12 +30,12 @@ public class EntriService {
         return entriRepository.insert(entriDTO);
     }
 
-    public Entri updateEntri(int idEntri, EntriDTOUpdate entriDTO) {
-        return entriRepository.update(idEntri, entriDTO);
+    public Entri updateEntri(int id, EntriDTOUpdate entriDTO) {
+        return entriRepository.update(id, entriDTO);
     }
 
-    public void deleteEntri(int idEntri) {
-        entriRepository.deleteById(idEntri);
+    public void deleteEntri(int id) {
+        entriRepository.deleteById(id);
     }
 
 }
