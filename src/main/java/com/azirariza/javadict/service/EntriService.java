@@ -22,7 +22,7 @@ public class EntriService {
         return entriRepository.findAll();
     }
 
-    public Optional<Entri> getEntriById(String id) {
+    public Optional<Entri> getEntriById(int id) {
         return entriRepository.findById(id);
     }
 

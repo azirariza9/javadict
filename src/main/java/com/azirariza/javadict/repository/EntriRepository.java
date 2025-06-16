@@ -39,7 +39,7 @@ public class EntriRepository {
         return jdbcTemplate.query(sql, new EntriRowMapper());
     }
 
-    public Optional<Entri> findById(String id) {
+    public Optional<Entri> findById(int id) {
         String sql = "SELECT id_entri,id_kata,nama,nomor,pelafalan  FROM entri WHERE id_entri = ?";
         return jdbcTemplate.query(sql, new EntriRowMapper(), id)
                 .stream()

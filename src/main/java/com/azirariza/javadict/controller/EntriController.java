@@ -39,7 +39,7 @@ public class EntriController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Entri> getEntriById(@PathVariable String id) {
+    public ResponseEntity<Entri> getEntriById(@PathVariable int id) {
         Optional<Entri> entri = entriService.getEntriById(id);
         return entri.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
