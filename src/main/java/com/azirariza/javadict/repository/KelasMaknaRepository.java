@@ -40,7 +40,7 @@ public class KelasMaknaRepository {
     }
 
     public Optional<KelasMakna> findById(int id) {
-        String sql = "SELECT id_makna,kode,nama,deskripsi  FROM kelasMakna WHERE id_kelas_makna = ?";
+        String sql = "SELECT id_kelas_makna,id_makna,kode,nama,deskripsi FROM kelas_makna WHERE id_kelas_makna = ?";
         return jdbcTemplate.query(sql, new KelasMaknaRowMapper(), id)
                 .stream()
                 .findFirst();

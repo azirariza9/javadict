@@ -26,7 +26,7 @@ public class MaknaRepository {
         public Makna mapRow(ResultSet rs, int rowNum) throws SQLException {
             Makna makna = new Makna();
             makna.setIdMakna(rs.getInt("id_makna"));
-            makna.setIdEntri(rs.getInt("kode"));
+            makna.setIdEntri(rs.getInt("id_entri"));
             makna.setInfo(rs.getString("info"));
             return makna;
         }

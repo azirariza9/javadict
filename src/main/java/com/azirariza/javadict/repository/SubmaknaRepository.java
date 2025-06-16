@@ -38,7 +38,7 @@ public class SubmaknaRepository {
     }
 
     public Optional<Submakna> findById(int id) {
-        String sql = "SELECT id_makna,teks FROM submakna WHERE id_submakna = ?";
+        String sql = "SELECT id_submakna,id_makna,teks FROM submakna WHERE id_submakna = ?";
         return jdbcTemplate.query(sql, new SubmaknaRowMapper(), id)
                 .stream()
                 .findFirst();

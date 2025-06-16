@@ -38,7 +38,7 @@ public class ContohRepository {
     }
 
     public Optional<Contoh> findById(int id) {
-        String sql = "SELECT id_makna,teks FROM contoh WHERE id_contoh = ?";
+        String sql = "SELECT id_contoh,id_makna,teks FROM contoh WHERE id_contoh = ?";
         return jdbcTemplate.query(sql, new ContohRowMapper(), id)
                 .stream()
                 .findFirst();
